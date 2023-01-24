@@ -31,7 +31,7 @@ public class RecipesService
     Recipe recipe = _repo.GetOne(id);
     if (recipe == null)
     {
-      throw new Exception("no chore at dis id bruh");
+      throw new Exception("no recipe at dis id bruh");
     }
 
     return recipe;

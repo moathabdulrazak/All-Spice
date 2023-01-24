@@ -41,7 +41,7 @@
         <button @click="getRecipes" class="btn text-things">Home</button>
       </div>
       <div class=" p-1">
-        <button v-if="account.id == recipes.creatorId" @click="getMyRecipes" class="btn text-things">My Recipes
+        <button @click="getMyRecipes" class="btn text-things">My Recipes
         </button>
       </div>
       <div class=" p-1 ">

@@ -82,6 +82,7 @@ export default {
           Pop.error(error);
         }
       },
+
     };
   },
   components: { IngredientCard }

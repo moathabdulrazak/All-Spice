@@ -22,10 +22,10 @@
     </div>
     <div class="pt-1 px-3">
       <button v-if="!liked" @click="favRecipe()" class=" mdi btn text-light fs-5 text-vfx mdi-heart-outline"></button>
-      <button v-else="" @click="removeFav(liked.id)" class=" mdi btn text-danger text-vfx fs-5 mdi-heart"></button>
+      <button v-else @click="removeFav(liked.favoriteId)" class=" mdi btn text-danger text-vfx fs-5 mdi-heart"></button>
       <button title="delete event" class=" btn btn-outline btn-danger mdi mdi-delete"
         v-if="recipe?.creatorId == account.id" @click="deleteRecipe"></button>
-      <img class="img-fluid img-vfx px-2 p-1" :src="recipe.creator.picture" alt="" srcset="">
+      <img class="img-fluid img-vfx px-2 p-1" :src="recipe.creator?.picture" alt="" srcset="">
     </div>
   </div>
 
@@ -46,15 +46,20 @@ export default {
     recipe: { type: Object, required: true }
   },
   setup(props) {
+    onMounted(() => {
+      // console.log("[PROPS]", liked)
+    })
 
     return {
-      liked: computed(() => AppState.favorites.find((l, index) => l.id == props.recipe.id)),
+      liked: computed(() => AppState.favorites.find((f => f.id == props.recipe.id))),
       account: computed(() => AppState.account),
-      // foundMe: computed(() => AppState.favorites.find(f => f.id == AppState.recipes.id)),
+      // foundMe: computed(() => AppState.favorites.find(f => f.favoriteId == props.recipe.favoriteId)),
+      // fav: computed(() => AppState.favorites),
       // fav: computed(() => AppState.favorites),
       async favRecipe() {
         try {
-          await favoritesService.favRecipe(props.recipe)
+          let recipe = { recipeId: props.recipe.id }
+          await favoritesService.favRecipe(recipe)
           Pop.success("added to favorites")
         } catch (error) {
           Pop.error(error)

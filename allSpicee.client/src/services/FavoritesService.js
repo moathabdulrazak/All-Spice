@@ -10,22 +10,18 @@ class FavoritesService {
     AppState.recipes = res.data
   }
   async favRecipe(recipe) {
-    let recipeId = {};
-    recipeId.recipeId = recipe.id
-    const res = await api.post("api/favorites", recipeId);
-    AppState.favorites.push(res.data)
-    // AppState.myFavorites.push(res.data)
+    const res = await api.post("api/favorites", recipe);
+    logger.log(res.data)
+    this.getFavorites()
+    // AppState.favorites.push(res.data)
 
   }
 
   async removeFav(likedId) {
     const res = await api.delete(`api/favorites/${likedId}`);
-    let index = AppState.favorites.findIndex(f => f.id == favoriteId)
+    let index = AppState.favorites.findIndex(f => f.favoriteId == likedId)
     AppState.favorites.splice(index, 1)
-    if (AppState.number) {
-      AppState.recipes = AppState.recipes.filter(f => f.id != recipeId)
-    }
-    AppState.favorites = res.data
+    // AppState.favorites = res.data
   }
 }
 
