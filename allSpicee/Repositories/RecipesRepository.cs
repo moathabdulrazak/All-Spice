@@ -30,11 +30,14 @@ SELECT LAST_INSERT_ID();
   internal List<Recipe> Get()
   {
     string sql = @"
-    SELECT
-    rc.*,
-    ac.*
-FROM recipes rc
-JOIN accounts ac on ac.id = rc.creatorId;
+SELECT
+    recipe.*,
+    COUNT(fm.id) AS calcFavCount,
+    prof.*
+FROM recipes recipe
+    LEFT JOIN favorites fm ON recipe.id = fm.recipeId
+    JOIN accounts prof ON prof.id = recipe.`creatorId`
+GROUP BY (recipe.id);
     ";
     List<Recipe> recipes = _db.Query<Recipe, Account, Recipe>(sql, (recipe, account) =>
     {

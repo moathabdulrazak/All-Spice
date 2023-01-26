@@ -43,6 +43,7 @@ public class RecipesService
     original.Instructions = recipeEdit.Instructions ?? original.Instructions;
     original.Img = recipeEdit.Img ?? original.Img;
     original.Category = recipeEdit.Category ?? original.Category;
+    original.FavCount = recipeEdit.FavCount ?? original.FavCount;
     original.CreatorId = recipeEdit.CreatorId ?? original.CreatorId;
 
     bool edited = _repo.Edit(original);

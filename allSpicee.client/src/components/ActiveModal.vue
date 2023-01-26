@@ -34,7 +34,7 @@
           </div>
           <button type="submit" class="btn btn-primary">create</button>
         </form>
-        <h1>recipe steps</h1>
+        <h1>recipe ingredients</h1>
         <div class="card" v-for="i in ingredients">
           <IngredientCard :ingredient="i" />
         </div>

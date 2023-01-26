@@ -14,7 +14,7 @@ public class FavoritesService
   internal FavoritesModel Create(FavoritesModel favData)
   {
     Recipe recipe = _recipesService.GetOne(favData.recipeId, favData.accountId);
-
+    recipe.FavCount++;
     FavoritesModel favorite = _repo.Create(favData);
 
     return favorite;

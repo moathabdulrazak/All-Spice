@@ -19,14 +19,14 @@ import Pop from "../utils/Pop.js";
 import { recipesService } from "../services/RecipesService.js";
 export default {
   setup() {
-    const editable = ref({})
+    const editable = ref('')
     watchEffect(() => { })
     return {
       editable,
       async searchCategory() {
         try {
           await recipesService.searchCategory(editable.value)
-          editable.value = {}
+          editable.value = ''
         } catch (error) {
           Pop.error(error)
         }

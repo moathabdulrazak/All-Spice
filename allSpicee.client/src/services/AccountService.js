@@ -12,11 +12,13 @@ class AccountService {
     }
   }
 
-  // async getMyRecipes() {
-  //   const res = await api.get('account/recipes')
-  //   AppState.myRecipes = res.data
-  //   AppState.recipes = res.data
-  // }
+  async getMyRecipes() {
+    debugger
+    const res = await api.get('api/recipes')
+    let recipes = res.data
+    let filtred = recipes.filter(r => r.creatorId == AppState.account.id)
+    AppState.recipes = filtred
+  }
 }
 
 export const accountService = new AccountService()

@@ -15,15 +15,13 @@
     <ActiveModal />
     <div class="pt-3 px-5">
       <div class="pb-3  bg-img col-12 img-fluid elevation-5  "
-        style="background-image: url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')">
+        style="background-image: url('https://as1.ftcdn.net/v2/jpg/02/52/12/40/1000_F_252124067_aCtp9ZD934RboKmjJzkXiwYDL7XkNjpn.jpg')">
         <div class="row container d-flex justify-content-end ">
           <Login />
           <div class="col-10 align-items-center ">
             <h1 class="text-center fw-bold text-danger text-vfx glow">All-Spice</h1>
 
-            <!-- <h2 class="text-center fw-bold text-dark  text-vfx">Elevate your taste buds with every recipe</h2>
-              <h5 class="text-center fw-bold text-dark  text-vfx">Discover new flavors, explore cuisines and cook like a
-                pro. </h5> -->
+
             <h4 class="text-center  text-dark text2 text-vfx ">Unleash your culinary creativity with my recipe
               app.
               From classic dishes to unique creations, we have the recipe for every appetite.</h4>
@@ -35,7 +33,7 @@
       </div>
     </div>
   </div>
-  <div class="row container-fluid  pt-2 pb-1">
+  <div class="row container-fluid  pt-1 pb-1">
     <div class=" col-12 d-flex justify-content-center ">
       <div class="p-1  ">
         <button @click="getRecipes" class="btn text-things">Home</button>
