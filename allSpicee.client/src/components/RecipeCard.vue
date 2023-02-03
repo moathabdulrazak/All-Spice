@@ -96,7 +96,6 @@ export default {
   },
   setup(props) {
     onMounted(() => {
-      // console.log("[PROPS]", liked)
     })
 
     return {

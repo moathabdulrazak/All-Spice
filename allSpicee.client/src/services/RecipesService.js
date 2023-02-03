@@ -31,7 +31,6 @@ class RecipesService {
     const res = await api.get("api/recipes", query)
     logger.log(res.data)
     AppState.recipes = res.data
-    debugger
     AppState.recipes = AppState.recipes.filter((r) => r.category.toString().toUpperCase().includes(query.toUpperCase()))
   }
   async getDetials(recipeId) {
